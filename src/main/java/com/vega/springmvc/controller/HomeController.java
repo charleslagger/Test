@@ -14,16 +14,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
-//	@RequestMapping("/fname={fName}&ackurl={ackUrl}&mkey={mKey}")
-//	public ModelAndView uri(Model model, @PathVariable(value = "fName") String fileName,
-//			@PathVariable(value = "ackUrl") String ackUrl, @PathVariable(value = "mKey") String key) {
-//		List<Map<String, String>> lists = getList(fileName);
-//		// tham chieu toi mainView.jsp
-//		ModelAndView mav = new ModelAndView("index");
-//		mav.addObject("lists", lists);
-//		model.addAttribute("fName", fileName);
-//		return mav;
-//	}
+	@RequestMapping("/fname={fName}&ackurl={ackUrl}&mkey={mKey}")
+	public ModelAndView uri(Model model, @PathVariable(value = "fName") String fileName,
+			@PathVariable(value = "ackUrl") String ackUrl, @PathVariable(value = "mKey") String key) {
+		List<Map<String, String>> lists = getList(fileName);
+		// tham chieu toi mainView.jsp
+		ModelAndView mav = new ModelAndView("contentView");
+		mav.addObject("lists", lists);
+		model.addAttribute("fName", fileName);
+		return mav;
+	}
 	
 	public List<Map<String, String>> getList(String fileName){
 		String[] splitSemicolon = fileName.split(";");
@@ -45,12 +45,12 @@ public class HomeController {
 		return lists;
 	}
 	
-	@RequestMapping("/fname={fName}&ackurl={ackUrl}&mkey={mKey}")
-	public String test(Model model,
-			@PathVariable(value = "fName") String fileName,
-			@PathVariable(value = "ackUrl") String ackUrl,
-			@PathVariable(value = "mKey") String mKey) {
-		
-		return "contentView";
-	}
+//	@RequestMapping("/fname={fName}&ackurl={ackUrl}&mkey={mKey}")
+//	public String test(Model model,
+//			@PathVariable(value = "fName") String fileName,
+//			@PathVariable(value = "ackUrl") String ackUrl,
+//			@PathVariable(value = "mKey") String mKey) {
+//		
+//		return "contentView";
+//	}
 }

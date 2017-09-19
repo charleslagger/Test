@@ -13,7 +13,7 @@ import org.springframework.web.util.UrlPathHelper;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.vega.springmvc.*")
-public class ApplicationConfig extends WebMvcConfigurerAdapter{
+public class ApplicationWebConfig extends WebMvcConfigurerAdapter{
 	
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
